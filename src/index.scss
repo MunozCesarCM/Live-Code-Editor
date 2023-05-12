@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Mono:wght@400;700&display=swap');
 
+$color-background: #060606;
+$color-html: #e34c26;
+$color-css: #2965f1;
+$color-js: #F0DB4F;
+
 * {
   margin: 0;
   padding: 0;
@@ -8,36 +13,60 @@
 }
 
 header {
-  background-color: black;
+  background-color: $color-background;
   padding-bottom: 15px;
 
   h1 {
     color: white;
     font-weight: 800;
-    padding: 0.2em 0 0.2em 1em;
+    padding: 0.2em 0 0.2em 0.5em;
   }
 }
 
 main {
-  background-color: #111111;
+  background-color: $color-background;
   display: flex;
   justify-content: space-around;
+  padding: 0 10px;
 
   .editor {
     width: 33%;
     padding: 15px 2px;
-    margin: 0.5em;
+    margin: 7px;
 
     .title {
       display: flex;
 
-      span {
+      & > span {
         background-color: #333333;
         color: white;
         padding: 0.25em 0.5em;
         font-size: 1.2em;
         font-weight: 600;
-        border-top: 3px solid green;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+
+        span {
+          font-family: 'Roboto Mono', monospace;
+          font-size: 0.75em;
+          padding: 0 3px;
+          border-radius: 3px;
+          margin-right: 0.5em;
+          color: black;
+        }
+      }
+
+      #HTML {
+        border-top: 3px solid $color-html;
+        span { background-color: $color-html; }
+      }
+      #CSS {
+        border-top: 3px solid $color-css;
+        span { background-color: $color-css; }
+      }
+      #JS {
+        border-top: 3px solid $color-js;
+        span { background-color: $color-js; }
       }
     }
 
@@ -46,7 +75,10 @@ main {
       background-color: #333333;
       color: white;
       padding: 20px;
-      height: 40vh;
+      height: 37.5vh;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
     }
   }
 }

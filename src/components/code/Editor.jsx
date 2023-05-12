@@ -2,7 +2,10 @@ const Editor = ({title, icon}) => {
   return (
     <div className='editor'>
       <div className='title'>
-        <span>{title}</span>
+        <span id={title}>
+          <span>{icon}</span>
+          {title}
+        </span>
       </div>
       <div className='content'>
         Content
