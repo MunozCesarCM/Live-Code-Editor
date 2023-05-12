@@ -1,11 +1,11 @@
 import Editor from './Editor';
 
-const Code = () => {
+const Code = ({html, css, js, setHtml, setCss, setJs}) => {
   return (
     <main>
-      <Editor title='HTML' icon='/'/>
-      <Editor title='CSS' icon='*'/>
-      <Editor title='JS' icon='()'/>
+      <Editor title='HTML' icon='/' code={html} setCode={setHtml}/ >
+      <Editor title='CSS' icon='*' code={css} setCode={setCss} />
+      <Editor title='JS' icon='()' code={js} setCode={setJs} />
     </main>
   )
 }
