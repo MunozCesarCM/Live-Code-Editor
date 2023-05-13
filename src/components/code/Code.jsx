@@ -1,6 +1,9 @@
+import { useContext } from 'react';
 import Editor from './Editor';
+import CodeContext from '../../context/CodeContext';
 
-const Code = ({html, css, js, setHtml, setCss, setJs}) => {
+const Code = () => {
+  const {html, css, js, setHtml, setCss, setJs} = useContext(CodeContext);
   return (
     <main>
       <Editor title='HTML' icon='/' code={html} setCode={setHtml}/ >

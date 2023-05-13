@@ -33,12 +33,28 @@ $color-js: #F0DB4F;
 
 header {
   background-color: $color-background;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   h1 {
     font-family: 'Poppins', sans-serif;
     color: white;
     font-weight: 800;
     padding: 0.2em 0 0 0.5em;
+  }
+
+  .icon {
+    color: white;
+    font-size: 1.3em;
+    margin-right: 0.75em;
+    cursor: pointer;
+    transition-duration: 100ms;
+
+    &:hover {
+      color: red;
+      transition-duration: 100ms;
+    }
   }
 }
 
