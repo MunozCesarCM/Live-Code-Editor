@@ -115,4 +115,4 @@ svg{
 }`;
 
 export const codeJS =
-  ``;
+  ` `;

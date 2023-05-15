@@ -195,4 +195,4 @@ body{
 }`;
 
 export const codeJS =
-  ``;
+  ` `;
