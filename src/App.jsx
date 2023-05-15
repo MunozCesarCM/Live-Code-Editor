@@ -2,9 +2,20 @@ import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Code from './components/code/Code';
 import CodeContext from './context/CodeContext';
-import { codeHTML, codeCSS, codeJS } from './constants/defaultCode';
+
+const codeOptions = [];
+for (let i = 1; i <= 5; i++) {
+  const module = await import(
+    /* @vite-ignore */
+    `./constants/code/example${i}.js`
+  );
+  codeOptions.push(module);
+}
 
 const App = () => {
+  const [codeIndex, setCodeIndex] = useState(0);
+  const { codeHTML, codeCSS, codeJS } = codeOptions[codeIndex];
+
   const [html, setHtml] = useState(codeHTML);
   const [css, setCss] = useState(codeCSS);
   const [js, setJs] = useState(codeJS);
@@ -14,8 +25,15 @@ const App = () => {
       <body>${html}</body>
       <style>${css}</style>
       <script>${js}</script>
-    </html>`
-  );
+      </html>`
+    );
+
+  useEffect(() => {
+    setHtml(codeHTML);
+    setCss(codeCSS);
+    setJs(codeJS);
+  }, [codeIndex]);
+
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -26,13 +44,18 @@ const App = () => {
           <script>${js}</script>
         </html>`
       )
-    }, 250);
+    }, 200);
 
     return () => clearTimeout(timeout);
   }, [html, css, js]);
 
+  const shuffleCode = () => {
+    const newIndex = (codeIndex + 1) % codeOptions.length;
+    setCodeIndex(newIndex);
+  };
+
   return (
-    <CodeContext.Provider value={{html, css, js, setHtml, setCss, setJs}}>
+    <CodeContext.Provider value={{html, css, js, setHtml, setCss, setJs, shuffleCode}}>
       <div className='editor-container'>
         <Header />
         <Code />
@@ -50,4 +73,3 @@ const App = () => {
 };
 
 export default App;
-
