@@ -16,11 +16,11 @@ const Header = () => {
       <h1>Code Editor</h1>
       <div>
         <TbArrowsShuffle
-          className='icon'
+          className='icon shuffle'
           onClick={shuffleCode}
         />
         <TbTrashX
-          className='icon'
+          className='icon remove'
           onClick={clearText}
         />
       </div>
