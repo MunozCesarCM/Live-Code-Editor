@@ -19,7 +19,7 @@ const Editor = ({title, icon, code, setCode}) => {
   }
 
   return (
-    <div className={`editor ${expand ? '': 'collapsed'}`}>
+    <div className={`editor ${expand ? 'expanded': 'collapsed'}`}>
       <div className='title'>
         <span id={title}>
           <span>{icon}</span>

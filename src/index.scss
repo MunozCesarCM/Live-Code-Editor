@@ -89,14 +89,17 @@ main {
   justify-content: flex-start;
   padding: 0 10px;
 
+  .expanded {
+    width: 32%;
+    flex-grow: 1;
+  }
+
   .collapsed {
-    width: 15%!important;
-    flex-grow: 0!important;
+    width: 15%;
+    flex-grow: 0;
   }
 
   .editor {
-    width: 32%;
-    flex-grow: 1;
     padding: 15px 2px;
     margin: 7px;
 
